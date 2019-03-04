@@ -6,7 +6,7 @@ Brick::Brick(RectF in_rect, Color in_color) :
 {
 }
 
-void Brick::Draw(Graphics & graph)
+void Brick::Draw(Graphics & graph) const
 {
 	graph.DrawRect(rect, color);
 }
