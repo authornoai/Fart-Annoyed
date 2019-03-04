@@ -11,7 +11,8 @@ public:
 	RectF(const Vec2& topLeftVec, float width, float height);
 
 	bool isOverlappingWith(const RectF& rect) const;
-private:
+
+public:
 	float left;
 	float right;
 	float top;
