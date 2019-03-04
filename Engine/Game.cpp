@@ -26,7 +26,8 @@ Game::Game( MainWindow& wnd )
 	wnd( wnd ),
 	gfx( wnd ),
 	testBrick ( RectF(Vec2(20, 20), Vec2(40, 40)), Colors::Blue),
-	ball(Vec2(400, 40), Vec2(-10, 10))
+	ball(Vec2(200, 200), Vec2(100, 100)),
+	border( 0, 0, gfx.ScreenWidth, gfx.ScreenHeight)
 {
 }
 
@@ -41,7 +42,10 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	const float dt = timer.Mark();
+
 	ball.Update(dt);
+	ball.DoWallCollision(border);
+	
 }
 
 void Game::ComposeFrame()

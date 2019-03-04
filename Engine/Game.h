@@ -48,5 +48,6 @@ private:
 	FrameTimer timer;
 	Brick testBrick;
 	Ball ball;
+	RectF border;
 	/********************************/
 };
