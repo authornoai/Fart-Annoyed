@@ -25,7 +25,8 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	testBrick ( RectF(Vec2(20, 20), Vec2(40, 40)), Colors::Blue)
+	testBrick ( RectF(Vec2(20, 20), Vec2(40, 40)), Colors::Blue),
+	ball(Vec2(400, 40), Vec2(-10, 10))
 {
 }
 
@@ -39,10 +40,12 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	
+	const float dt = timer.Mark();
+	ball.Update(dt);
 }
 
 void Game::ComposeFrame()
 {
 	testBrick.Draw(gfx);
+	ball.Draw(gfx);
 }
