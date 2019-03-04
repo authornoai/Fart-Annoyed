@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Graphics.h"
-#include "Vec2.h"
+#include "RectF.h"
 
 class Ball
 {
@@ -10,6 +10,12 @@ public:
 
 	void Draw(Graphics& graph) const;
 	void Update(float dt);
+
+	bool DoWallCollision(const RectF& wall);
+	void ReboundX();
+	void ReboundY();
+
+	RectF GetRect() const;
 
 private:
 	Vec2 position;

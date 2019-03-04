@@ -17,3 +17,52 @@ void Ball::Update(const float dt)
 {
 	position += velocity * dt;
 }
+
+bool Ball::DoWallCollision(const RectF & wall)
+{
+	bool result = false;
+
+	const RectF rect = GetRect();
+
+	if (rect.left < wall.left)
+	{
+		result = true;
+		position.x += wall.left - rect.left;
+		ReboundX();
+	}
+	else if(rect.right > wall.right)
+	{
+		result = true;
+		position.x -= rect.right - wall.right;
+		ReboundX();
+	}
+	else if (rect.top < wall.top)
+	{
+		result = true;
+		position.y += wall.top - rect.top;
+		ReboundY();
+	}
+	else if (rect.bottom > wall.bottom)
+	{
+		result = true;
+		position.y -= rect.bottom - wall.bottom;
+		ReboundY();
+	}
+
+	return result;
+}
+
+void Ball::ReboundX()
+{
+	velocity.x = -velocity.x;
+}
+
+void Ball::ReboundY()
+{
+	velocity.y = -velocity.y;
+}
+
+RectF Ball::GetRect() const
+{
+	return RectF::FromCenter(position, radius, radius);
+}
