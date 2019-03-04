@@ -8,7 +8,12 @@ Ball::Ball(Vec2 pos, Vec2 vel)
 {
 }
 
-void Ball::Draw(Graphics & graph)
+void Ball::Draw(Graphics & graph) const
 {
 	SpriteCodex::DrawBall(position, graph);
+}
+
+void Ball::Update(const float dt)
+{
+	position += velocity * dt;
 }

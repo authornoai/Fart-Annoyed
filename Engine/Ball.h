@@ -8,7 +8,8 @@ class Ball
 public:
 	Ball(Vec2 position, Vec2 vel);
 
-	void Draw(Graphics& graph);
+	void Draw(Graphics& graph) const;
+	void Update(float dt);
 
 private:
 	Vec2 position;
