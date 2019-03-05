@@ -2,12 +2,14 @@
 
 #include "Graphics.h"
 #include "RectF.h"
+#include "Ball.h"
 
 class Brick
 {
 public:
 	Brick(RectF in_rect, Color in_color);
 
+	bool DoBallCollision(Ball& ball);
 	void Draw(Graphics& graph) const;
 private:
 	Color color;
