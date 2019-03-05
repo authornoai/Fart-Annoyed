@@ -51,5 +51,6 @@ private:
 	Ball ball;
 	RectF border;
 	Sound soundPad;
+	Sound soundBrick;
 	/********************************/
 };
