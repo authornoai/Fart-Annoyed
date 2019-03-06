@@ -62,9 +62,9 @@ void Game::UpdateModel()
 	ball.Update(dt);
 	player.Update(wnd.kbd, dt);
 
-	for (int i = 0; i < nBricks; ++i)
+	for (Brick& b : bricks)
 	{
-		if (bricks[i].DoBallCollision(ball))
+		if (b.DoBallCollision(ball))
 		{
 			soundBrick.Play();
 			break;
@@ -83,7 +83,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	for each(Brick b in bricks)
+	for(Brick& b : bricks)
 	{
 		b.Draw(gfx);
 	}
