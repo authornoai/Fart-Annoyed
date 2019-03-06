@@ -18,7 +18,7 @@ bool Paddle::DoBallCollision(Ball & ball) const
 {
 	bool result = false;
 
-	if (GetRect().isOverlappingWith(ball.GetRect()))
+	if (ball.GetVelocity().y > 0.f && GetRect().isOverlappingWith(ball.GetRect()))
 	{
 		ball.ReboundY();
 		result = true;
