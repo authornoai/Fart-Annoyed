@@ -20,6 +20,6 @@ private:
 	Color color = Colors::White;
 	const float halfWidth;
 	const float halfHeigth;
-	float speed;
+	float speed = 300.0f;
 	Vec2 pos;
 };

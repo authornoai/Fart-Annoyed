@@ -18,7 +18,7 @@ bool Paddle::DoBallCollision(Ball & ball) const
 {
 	bool result = false;
 
-	if (GetRect().isOverlappingWith(ball.GetRect))
+	if (GetRect().isOverlappingWith(ball.GetRect()))
 	{
 		ball.ReboundY();
 		result = true;
@@ -33,11 +33,14 @@ bool Paddle::DoWallCollision(const RectF & walls)
 	if (rect.left < walls.left)
 	{
 		pos.x += walls.left - rect.left;
+		return true;
 	}
 	else if (rect.right > walls.right)
 	{
 		pos.x -= rect.right - walls.right;
+		return true;
 	}
+	return false;
 }
 
 void Paddle::Update(const Keyboard& kbd, float dt)
