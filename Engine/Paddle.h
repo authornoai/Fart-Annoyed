@@ -22,4 +22,7 @@ private:
 	const float halfHeigth;
 	float speed = 300.0f;
 	Vec2 pos;
+
+	const float wingWidth = 15.0f;
+	Color wingColor = Colors::Red;
 };
