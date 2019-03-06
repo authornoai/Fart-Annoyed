@@ -48,11 +48,20 @@ private:
 	/********************************/
 	/*  User Variables              */
 	FrameTimer timer;
-	Brick testBrick;
+	
 	Paddle player;
 	Ball ball;
 	RectF border;
+
 	Sound soundPad;
 	Sound soundBrick;
+
+	static constexpr int nBrickAcross = 12;
+	static constexpr int nBrickRows = 4;
+	static constexpr float brickWidth = 40.0f;
+	static constexpr float brickHeight = 24.0f;
+	static constexpr int nBricks = nBrickAcross * nBrickRows;
+	Brick bricks[nBricks];
+
 	/********************************/
 };

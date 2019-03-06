@@ -7,6 +7,7 @@
 class Brick
 {
 public:
+	Brick() = default;
 	Brick(RectF in_rect, Color in_color);
 
 	bool DoBallCollision(Ball& ball);
