@@ -16,7 +16,7 @@ public:
 	void ReboundY();
 
 	RectF GetRect() const;
-
+	Vec2 GetVelocity() const;
 private:
 	Vec2 position;
 	Vec2 velocity;
