@@ -29,3 +29,8 @@ RectF RectF::FromCenter(const Vec2 & center, float halfWidth, float halfHeight)
 	Vec2 half(halfWidth, halfHeight);
 	return RectF(center - half, center + half);
 }
+
+RectF RectF::GetExpanded( float value) const
+{
+	return RectF(left - value, top - value, right + value, bottom + value);
+}
