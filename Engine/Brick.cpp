@@ -9,14 +9,18 @@ Brick::Brick(RectF in_rect, Color in_color) :
 
 bool Brick::CheckBallCollision(const Ball & ball) const
 {
-	return false;
+	return !isDestroyed && rect.isOverlappingWith(ball.GetRect());
 }
 
 void Brick::ExecuteBallCollision(Ball & ball)
 {
 	assert(CheckBallCollision(ball));
 	const Vec2 ballPos = ball.GetCenter();
-	if (rect.left <= ballPos.x &&
+	if (std::signbit(ball.GetVelocity().x) == std::signbit((ballPos - GetCenter()).x))
+	{
+		ball.ReboundY();
+	}
+	else if (rect.left <= ballPos.x &&
 		ballPos.x <= rect.right)
 	{
 		ball.ReboundY();
