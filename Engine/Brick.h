@@ -10,8 +10,11 @@ public:
 	Brick() = default;
 	Brick(RectF in_rect, Color in_color);
 
-	bool DoBallCollision(Ball& ball);
+	bool CheckBallCollision(const Ball& ball) const;
+	void ExecuteBallCollision(Ball& ball);
 	void Draw(Graphics& graph) const;
+
+	Vec2 GetCenter() const;
 private:
 	Color color;
 	RectF rect;
