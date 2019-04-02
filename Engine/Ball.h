@@ -17,6 +17,9 @@ public:
 
 	RectF GetRect() const;
 	Vec2 GetVelocity() const;
+	Vec2 GetPosition() const;
+	Vec2 GetCenter() const;
+
 private:
 	Vec2 position;
 	Vec2 velocity;
