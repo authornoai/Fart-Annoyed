@@ -50,15 +50,23 @@ Game::Game( MainWindow& wnd )
 
 void Game::Go()
 {
-	gfx.BeginFrame();	
-	UpdateModel();
+	gfx.BeginFrame();
+
+	float elapsedTime = timer.Mark();
+	while (elapsedTime > 0.0f)
+	{
+		const float dt = std::min(0.0025f, elapsedTime);
+		UpdateModel(dt);
+		elapsedTime -= dt;
+	}
+	
 	ComposeFrame();
 	gfx.EndFrame();
 }
 
-void Game::UpdateModel()
+void Game::UpdateModel(float dt)
 {
-	const float dt = timer.Mark();
+	
 	ball.Update(dt);
 	player.Update(wnd.kbd, dt);
 
@@ -90,6 +98,7 @@ void Game::UpdateModel()
 
 	if (collisionHappend)
 	{
+		player.ResetCooldown();
 		bricks[curColIndex].ExecuteBallCollision(ball);
 		soundBrick.Play();
 	}
@@ -99,6 +108,7 @@ void Game::UpdateModel()
 	if (ball.DoWallCollision(border) || 
 		player.DoBallCollision(ball))
 	{
+		player.ResetCooldown();
 		soundPad.Play();
 	}
 	
