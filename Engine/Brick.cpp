@@ -21,6 +21,6 @@ void Brick::Draw(Graphics & graph) const
 {
 	if (!isDestroyed)
 	{
-		graph.DrawRect(rect, color);
+		graph.DrawRect(rect.GetExpanded(-padding), color);
 	}
 }
