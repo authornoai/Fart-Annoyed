@@ -8,13 +8,6 @@ Brick::Brick(RectF in_rect, Color in_color) :
 
 bool Brick::DoBallCollision(Ball & ball) 
 {
-	/*if (!isDestroyed && rect.isOverlappingWith(ball.GetRect()))
-	{
-		isDestroyed = true;
-		ball.ReboundY();
-		return true;
-	}*/
-
 
 	if (!isDestroyed && rect.isOverlappingWith(ball.GetRect()))
 	{
